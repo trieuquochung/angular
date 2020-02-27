@@ -1,0 +1,90 @@
+Tiki app
+
+Home page
+	Login button
+	Item List
+	Checkout button
+
+Login page
+
+ -> Create buyer-saler page
+
+Checkout page
+
+
+Edit item page
+
+	
+
+Buyer Module
+	Home Component
+		HomeMain:
+		List item to buy			<Checkout> <Login>
+		Item 1		<Add to cart> <Like>    < - + >  
+		Item 2 		<Add to cart> <Like> 	< - + >
+		
+			-> Not login yet? -> Go to login page (Create user...)
+			
+			-> Login -> Go to checkout page
+			
+		HomeCheckout
+		List item checked
+		Item 1		<Remove> <Like>
+		Item 2		<Remove> <Like>
+		
+			<Buy> => send message to saler
+			<Cancel> => Comeback list item 
+
+Saler Module
+	Home Component
+		HomeMain
+		List item to sale
+		Item 1			<Remove> <Update>
+		Item 2			<Remove> <Update>
+		
+		RemoveComponent
+		UpdateComponent
+		Check Message
+
+Login Module
+	When loading this module?
+		After buyer click Add to card for the first time, => require login
+		Click Login button in HomeMain of BuyerModule
+	
+	Detect buyer or saler
+		=> like Management app => redirect to BuyerModule or SalerModule
+		
+Components used together
+	
+	HomeMain of each module
+	
+Service
+	get/put users: [buyer, saler]
+	get/put items
+	
+	
+API list
+
+	buyer: {
+		username:
+		pass:
+		liked: [
+			list item liked
+		]
+		cart: [
+			list item added to cart
+		]
+	}
+
+	saler: {
+		username:
+		pass:
+		items: [
+			list items to sale
+		]
+		message:  message from buyer (read when login)
+	}
+
+
+Redux
+	

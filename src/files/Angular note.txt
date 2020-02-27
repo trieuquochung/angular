@@ -1,0 +1,31 @@
+main-component
+ - create list data (mockapi)
+ - add/edit/detele
+ - Create form
+    ID:
+	Name:
+	Address:
+	Birthday:
+	Phone:
+	  => http push
+	  
+	  *ngFor
+	  
+	  
+Angular
+Module la gi
+Component la gi
+Giao tiep giua cac component voi nhau nhu the nao (@Output, @Input...)
+Cach su dung sevice
+
+@NgModule
+Hoc cac khai niem: imports, providers, declarations
+
+ES 6: Cac khai niem co ban, arrow function, syntax for switch ...	  
+	  
+Form builder
+Angular form
+isLoading css
+
+Angular OnChanges la gi 
+	  

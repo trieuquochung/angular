@@ -1,0 +1,64 @@
+<header>
+  <div class="header-body">
+    <h4>TIKI SHOPPING APP</h4>
+    <div *ngIf="currentUser.username" class="header-content">
+      <h5>Welcome: {{currentUser.username}}</h5>
+      <div class="top-right-button">
+        <button
+             type="button"
+             id="logout-button"
+             (click)="logout()">Logout
+        </button>
+        <button [disabled]="disableButton('checkout')"
+                type="button"
+                id="check-out-button"
+                (click)="checkout()">Checkout
+        </button>
+      </div>
+    </div>
+    <div *ngIf="!currentUser.username" class="header-content">
+      <div class="top-right-button">
+        <button
+             type="button"
+             id="login-button"
+             (click)="login()">Login
+        </button>
+        <button
+             [disabled]="disableButton('checkout')"
+             type="button"
+             (click)="checkout()">Checkout
+        </button>
+      </div>
+    </div>
+  </div>
+
+</header>
+
+<div>
+  <div *ngIf="!isLoading">
+    <div *ngFor="let item of itemList">
+      <span id=name>{{item.name}}</span>
+      <div>
+        <label for="phone">  Price: </label>
+        <span id=phone>{{item.price}}</span>
+      </div>
+
+      <div id="image">
+        <img src={{item.image}} height="150" width="150">
+      </div>
+
+      <div>
+        <input type="checkbox" id="add-to-card-button" [(ngModel)]="item.added" (change)="addToCart()" name="itemAdded"/>
+          Add To Cart
+        <input type="checkbox" id="like-button" [ngModel]="item.liked" (change)="like()" name="nameLiked">
+          Like
+      </div>
+      <br>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="!isBuyer">
+  <p>You don't have permission to view this page!</p>
+</div>

@@ -1,0 +1,32 @@
+<div *ngIf="!isCreateView">
+  <div *ngIf="!isLoading">
+    <div>
+      <label for="username"> User:
+        <input type="text" id="username" [(ngModel)]="username" name="username"/>
+      </label>
+      <label for="password"> Pass:
+        <input type="password" id="password" [(ngModel)]="password" name="password"/>
+      </label>
+    </div>
+    <div>
+      <button type="submit" (click)="onLogin()" [disabled]="!username || !password">
+        Login
+      </button>
+      <button type="button" (click)="onCancel()">
+        Cancel
+      </button>
+      <button type="button" (click)="createUser()">
+        Create User
+      </button>
+    </div>
+    <div *ngIf="wrongPassword">
+      <p>Wrong User Name or Password</p>
+    </div>
+  </div>
+
+  <div *ngIf="isLoading">
+    <p>In Progress</p>
+  </div>
+</div>
+
+<create-user *ngIf="isCreateView" (onCreateSuccess)="changeView($event)"></create-user>

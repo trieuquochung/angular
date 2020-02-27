@@ -1,0 +1,58 @@
+<header>
+  <div class="header-body">
+    <h4>TIKI SHOPPING APP</h4>
+<!--    <div *ngIf="currentUser.username" class="header-content">-->
+<!--      <h5>Welcome: {{currentUser.username}}</h5>-->
+<!--      <div class="top-right-button">-->
+<!--        <button-->
+<!--             type="button"-->
+<!--             id="logout-button"-->
+<!--             (click)="logout()">Logout-->
+<!--        </button>-->
+<!--        <button [disabled]="disableButton('checkout')"-->
+<!--                type="button"-->
+<!--                id="check-out-button"-->
+<!--                (click)="checkout()">Checkout-->
+<!--        </button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div *ngIf="!currentUser.username" class="header-content">-->
+<!--      <div class="top-right-button">-->
+<!--        <button-->
+<!--             type="button"-->
+<!--             id="login-button"-->
+<!--             (click)="login()">Login-->
+<!--        </button>-->
+<!--        <button-->
+<!--             [disabled]="disableButton('checkout')"-->
+<!--             type="button"-->
+<!--             (click)="checkout()">Checkout-->
+<!--        </button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+  </div>
+</header>
+
+<div>
+  <div *ngFor="let item of checkouts">
+    <span id=name>{{item.name}}</span>
+    <div>
+      <label for="phone">  Price: </label>
+      <span id=phone>{{item.price}}</span>
+    </div>
+
+    <div id="image">
+      <img src={{item.image}} height="150" width="150">
+    </div>
+   </div>
+  <div>
+    <button type="button">
+      Buy
+    </button>
+    <button type="button" (click)="cancel()">
+      Cancel
+    </button>
+  </div>
+</div>
