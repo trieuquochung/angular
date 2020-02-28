@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'home-component',
-  templateUrl: './home.component.html'
+  template: '<router-outlet><router-outlet>'
 })
 
 export class HomeComponent {}

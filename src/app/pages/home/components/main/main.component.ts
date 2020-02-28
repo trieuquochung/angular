@@ -63,6 +63,11 @@ export class MainComponent implements OnInit {
     }
   }
   login() {
+    if (this.carts.length >= 1) {
+      localStorage.setItem('tempCheckouts', JSON.stringify({
+        items: this.carts
+      }));
+    }
     this.router.navigate(['/login']);
   }
   logout() {
@@ -75,15 +80,8 @@ export class MainComponent implements OnInit {
     this.isLoading = true;
     const data = {
       username: this.currentUser.username,
-      items: []
+      items: this.carts
     };
-    for (const item of this.carts) {
-      data.items.push({
-        name: item.name,
-        price: item.price,
-        image: item.image
-      });
-    }
     if (this.currentUser.role === 'buyer') {
       this.homeService.postCheckouts(data)
         .subscribe((res) => {
@@ -102,9 +100,8 @@ export class MainComponent implements OnInit {
     this.likes = this.itemList.filter(o => o.liked);
   }
   parseCheckouts(user, checkouts) {
-    if (user && checkouts) {
+    if (checkouts) {
       this.carts = checkouts.items;
-      checkouts.username = user.username;
       for (const checkoutItem of checkouts.items) {
         for (const item of this.itemList) {
           if (item.name === checkoutItem.name) {

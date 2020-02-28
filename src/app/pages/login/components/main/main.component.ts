@@ -36,12 +36,17 @@ export class LoginMainComponent implements OnInit{
             'username': this.validatorUser()[0].username,
             'role': this.validatorUser()[0].role
           }));
-          this.router.navigate(['']);
+          if (localStorage.getItem('checkouts')) {
+           this.router.navigate(['/checkout']) 
+          } else {
+            this.router.navigate(['']);
+          }
           this.wrongPassword = false;
         } else {
           this.wrongPassword = true;
         }
         this.isLoading = false;
+
       }
     });
   }
@@ -57,7 +62,6 @@ export class LoginMainComponent implements OnInit{
     this.router.navigate(['']);
   }
   ngOnInit() {
-    console.log('Main Login layout');
   }
 
   createUser() {
