@@ -1,14 +1,14 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 
 export class HomeService {
   checkouts: any = [];
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient) {}
 
   putData(data) {
-    return this.http.put('https://5e4e7cda6272aa0014230b67.mockapi.io/employee/' + data.id, data)
+    return this.http.put('https://5e4e7cda6272aa0014230b67.mockapi.io/employee/' + data.id, data);
   }
 
   postData(data) {
@@ -16,15 +16,15 @@ export class HomeService {
   }
 
   deleteData(data) {
-    return this.http.delete('https://5e4e7cda6272aa0014230b67.mockapi.io/employee/' + data.id)
+    return this.http.delete('https://5e4e7cda6272aa0014230b67.mockapi.io/employee/' + data.id);
   }
 
   getData() {
-    return this.http.get('https://5e4e7cda6272aa0014230b67.mockapi.io/employee/')
+    return this.http.get('https://5e4e7cda6272aa0014230b67.mockapi.io/employee/');
   }
 
   getItemList() {
-    return this.http.get('https://5e4e7cda6272aa0014230b67.mockapi.io/items/')
+    return this.http.get('https://5e4e7cda6272aa0014230b67.mockapi.io/items/');
   }
 
 
